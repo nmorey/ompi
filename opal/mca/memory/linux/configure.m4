@@ -68,11 +68,10 @@ AC_DEFUN([MCA_opal_memory_linux_CONFIG],[
     memory_hook_found=1
     AS_IF([test "$memory_hook_found" -eq 1],
         [memory_hook_found=0 AC_CHECK_HEADER([malloc.h],
-             [AC_CHECK_FUNC([__malloc_initialize_hook],
-                 [AC_CHECK_FUNC([__malloc_hook],
-                     [AC_CHECK_FUNC([__realloc_hook],
-                         [AC_CHECK_FUNC([__free_hook],
-                            [memory_hook_found=1])])])])])])
+            [AC_CHECK_FUNC([__malloc_hook],
+                [AC_CHECK_FUNC([__realloc_hook],
+                    [AC_CHECK_FUNC([__free_hook],
+                       [memory_hook_found=1])])])])])
     AC_MSG_CHECKING([whether the system can use malloc hooks])
     AS_IF([test "$memory_hook_found" = "0"],
           [AC_MSG_RESULT([no])],
@@ -134,7 +133,7 @@ AC_DEFUN([MCA_opal_memory_linux_CONFIG],[
 
     AS_IF([test "$memory_linux_ptmalloc2_happy" = yes],
           [# check for init hook symbol
-           AC_CHECK_DECL([__malloc_initialize_hook],
+           AC_CHECK_DECL([__malloc_hook],
                          [memory_linux_ptmalloc2_happy=yes],
                          [memory_linux_ptmalloc2_happy=no],
                          [AC_INCLUDES_DEFAULT
