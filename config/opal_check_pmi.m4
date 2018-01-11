@@ -317,9 +317,7 @@ AC_DEFUN([OPAL_CHECK_PMIX],[
                                                       ], [])],
                                     [AC_MSG_RESULT([found])
                                      opal_external_pmix_version=3X
-                                     opal_external_pmix_version_found=1
-                                     AC_MSG_WARN([This version of Open MPI does not support PMIx version 2.x and later])
-                                     AC_MSG_ERROR([Cannot continue])],
+                                     opal_external_pmix_version_found=1],
                                     [AC_MSG_RESULT([not found])])])
 
            AS_IF([test "$opal_external_pmix_version_found" = "0"],
@@ -332,9 +330,7 @@ AC_DEFUN([OPAL_CHECK_PMIX],[
                                                       ], [])],
                                     [AC_MSG_RESULT([found])
                                      opal_external_pmix_version=2X
-                                     opal_external_pmix_version_found=1
-                                     AC_MSG_WARN([This version of Open MPI does not support PMIx version 2.x and later])
-                                     AC_MSG_ERROR([Cannot continue])],
+                                     opal_external_pmix_version_found=1],
                                     [AC_MSG_RESULT([not found])])])
 
            AS_IF([test "$opal_external_pmix_version_found" = "0"],
