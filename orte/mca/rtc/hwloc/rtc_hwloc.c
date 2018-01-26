@@ -9,6 +9,8 @@
  * $HEADER$
  */
 
+#define OPAL_HWLOC_WANT_SHMEM 1
+
 #include "orte_config.h"
 #include "orte/constants.h"
 #include "orte/types.h"
