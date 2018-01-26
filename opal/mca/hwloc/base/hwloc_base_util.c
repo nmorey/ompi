@@ -27,6 +27,7 @@
  * $HEADER$
  */
 
+#define OPAL_HWLOC_WANT_SHMEM 1
 
 #include "opal_config.h"
 
