@@ -355,6 +355,8 @@ static int ompi_osc_rdma_component_query (struct ompi_win_t *win, void **base, s
                                           int flavor)
 {
 
+    int rc;
+
     if (MPI_WIN_FLAVOR_SHARED == flavor) {
         return -1;
     }
@@ -368,14 +370,17 @@ static int ompi_osc_rdma_component_query (struct ompi_win_t *win, void **base, s
     }
 #endif /* OPAL_CUDA_SUPPORT */
 
-    if (OMPI_SUCCESS == ompi_osc_rdma_query_mtls ()) {
+    rc = ompi_osc_rdma_query_mtls ();
+    rc = comm->c_coll->coll_allreduce(MPI_IN_PLACE, &rc, 1, MPI_INT, MPI_MIN, comm, comm->c_coll->coll_allreduce_module);
+    if (OMPI_SUCCESS == rc) {
         return 5; /* this has to be lower that osc pt2pt default priority */
     }
-
-    if (OMPI_SUCCESS != ompi_osc_rdma_query_btls (comm, NULL)) {
+ 
+    rc = ompi_osc_rdma_query_btls (comm, NULL);
+    rc = comm->c_coll->coll_allreduce(MPI_IN_PLACE, &rc, 1, MPI_INT, MPI_MIN, comm, comm->c_coll->coll_allreduce_module);
+    if (OMPI_SUCCESS != rc) {
         return -1;
     }
-
 
     return mca_osc_rdma_component.priority;
 }
