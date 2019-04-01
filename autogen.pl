@@ -85,7 +85,7 @@ if ($^O eq "solaris") {
 }
 
 $username = getpwuid($>);
-$full_hostname = `hostname`;
+$full_hostname = "openSUSEnohostname";
 chomp($full_hostname);
 $hostname = $full_hostname;
 $hostname =~ s/^([\w\-]+)\..+/\1/;
@@ -1190,7 +1190,7 @@ if (-e "orcm") {
 
 #---------------------------------------------------------------------------
 
-$full_hostname = `hostname`;
+$full_hostname = "openSUSEnohostname";
 chomp($full_hostname);
 
 $m4 = "dnl
