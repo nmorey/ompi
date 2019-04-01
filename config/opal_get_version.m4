@@ -91,7 +91,7 @@ m4_define([OPAL_GET_VERSION],[
                     $2_REPO_REV=`git describe --tags --always`
                 fi
             else
-                $2_REPO_REV="date`date '+%Y-%m-%d'`"
+                $2_REPO_REV="date"
             fi
         fi
 
