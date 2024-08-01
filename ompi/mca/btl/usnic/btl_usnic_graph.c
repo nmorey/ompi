@@ -14,6 +14,7 @@
 #include "opal_stdint.h"
 #include "opal/class/opal_pointer_array.h"
 #include "opal/constants.h"
+#include "opal/util/misc.h"
 
 /* mainly for BTL_ERROR */
 #if BTL_IN_OPAL

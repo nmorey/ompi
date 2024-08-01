@@ -14,6 +14,7 @@
 #include "ompi/mca/mtl/mtl.h"
 #include "ompi/mca/mtl/base/base.h"
 #include "opal/datatype/opal_convertor.h"
+#include "opal/util/misc.h"
 
 #include <rdma/fabric.h>
 #include <rdma/fi_cm.h>

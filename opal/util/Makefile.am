@@ -49,6 +49,7 @@ headers = \
         if.h \
         keyval_parse.h \
         malloc.h \
+        misc.h \
         net.h \
         numtostr.h \
         opal_environ.h \
