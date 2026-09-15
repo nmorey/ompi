@@ -35,7 +35,7 @@ int mca_memheap_base_output = -1;
 int mca_memheap_base_key_exchange = 1;
 opal_list_t mca_memheap_base_components_opened = {{0}};
 int mca_memheap_base_already_opened = 0;
-mca_memheap_map_t mca_memheap_base_map = {{{{0}}}};
+mca_memheap_map_t mca_memheap_base_map = {0};
 int mca_memheap_num_segments_warn = 32;
 
 static int mca_memheap_base_register(mca_base_register_flag_t flags)

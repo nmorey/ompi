@@ -693,7 +693,7 @@ free_request_buffer:
 /**
  * Called when a completion for a posted recv is received.
  */
-__opal_attribute_always_inline__ static inline int
+static inline int
 ompi_mtl_ofi_recv_callback(struct fi_cq_tagged_entry *wc,
                            ompi_mtl_ofi_request_t *ofi_req)
 {
