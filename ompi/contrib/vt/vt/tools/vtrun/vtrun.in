@@ -110,9 +110,9 @@ verbose_msg()
 {
   if test $verbose -ge $1; then
     if test $mpi -eq 1; then
-      echo -e "$EXENAME: [$PID]: $2"
+      echo "$EXENAME: [$PID]: $2"
     else
-      echo -e "$EXENAME: $2"
+      echo "$EXENAME: $2"
     fi
   fi
 }
@@ -123,9 +123,9 @@ verbose_msg()
 error_msg()
 {
   if test $mpi -eq 1; then
-    echo -e "$EXENAME: [$PID]: $*" >&2
+    echo "$EXENAME: [$PID]: $*" >&2
   else
-    echo -e "$EXENAME: $*" >&2
+    echo "$EXENAME: $*" >&2
   fi
 }
 
