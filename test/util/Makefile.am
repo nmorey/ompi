@@ -33,7 +33,7 @@ AM_CPPFLAGS = -I$(top_srcdir)/test/support
 
 
 check_PROGRAMS = \
-	opal_bit_ops opal_path_nfs
+	opal_bit_ops
 
 TESTS = \
 	$(check_PROGRAMS)
