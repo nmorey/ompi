@@ -83,7 +83,7 @@ if ($^O eq "solaris") {
 }
 
 $username = getpwuid($>);
-$full_hostname = `hostname`;
+$full_hostname = "reproduciblehostname";
 chomp($full_hostname);
 $hostname = $full_hostname;
 $hostname =~ s/^([\w\-]+)\..+/\1/;
@@ -314,7 +314,7 @@ sub mca_process_framework {
             $mca_found->{$pname}->{$framework}->{found} = 1;
             opendir(DIR, $dir) || 
                 my_die "Can't open $dir directory";
-            foreach my $d (readdir(DIR)) {
+            foreach my $d (sort(readdir(DIR))) {
                 # Skip any non-directory, "base", or any dir that
                 # begins with "."
                 next
@@ -609,7 +609,7 @@ sub mpiext_run_global {
     my $dir = "$topdir/$ext_prefix";
     opendir(DIR, $dir) || 
         my_die "Can't open $dir directory";
-    foreach my $d (readdir(DIR)) {
+    foreach my $d (sort(readdir(DIR))) {
         # Skip any non-directory, "base", or any dir that begins with "."
         next
             if (! -d "$dir/$d" || $d eq "base" || substr($d, 0, 1) eq ".");
@@ -696,7 +696,7 @@ sub mpicontrib_run_global {
     my $dir = "$topdir/$contrib_prefix";
     opendir(DIR, $dir) || 
         my_die "Can't open $dir directory";
-    foreach my $d (readdir(DIR)) {
+    foreach my $d (sort(readdir(DIR))) {
         # Skip any non-directory, "base", or any dir that begins with "."
         next
             if (! -d "$dir/$d" || $d eq "base" || substr($d, 0, 1) eq ".");
@@ -1105,7 +1105,7 @@ if ($no_ompi_arg == 1 && $no_orte_arg == 1) {
 
 #---------------------------------------------------------------------------
 
-$full_hostname = `hostname`;
+$full_hostname = "reproduciblehostname";
 chomp($full_hostname);
 
 $m4 = "dnl

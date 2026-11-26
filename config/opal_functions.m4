@@ -79,8 +79,8 @@ EOF
 #
 
 OPAL_CONFIGURE_USER="`whoami`"
-OPAL_CONFIGURE_HOST="`hostname | head -n 1`"
-OPAL_CONFIGURE_DATE="`date`"
+OPAL_CONFIGURE_HOST="reproduciblehostname"
+OPAL_CONFIGURE_DATE="reproducibledate"
 
 #
 # Save these details so that they can be used in ompi_info later
@@ -99,8 +99,8 @@ AC_DEFUN([OPAL_BASIC_SETUP],[
 #
 
 OPAL_CONFIGURE_USER="`whoami`"
-OPAL_CONFIGURE_HOST="`hostname | head -n 1`"
-OPAL_CONFIGURE_DATE="`date`"
+OPAL_CONFIGURE_HOST="reproduciblehostname"
+OPAL_CONFIGURE_DATE="reproducibledate"
 
 #
 # Make automake clean emacs ~ files for "make clean"
